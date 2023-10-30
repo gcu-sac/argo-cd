@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-ops-apps
+  name: web-app
   namespace: argo-cd
   # Add a this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -13,12 +13,11 @@ spec:
   source:
     repoURL: https://github.com/gcu-sac/argo-cd.git
     targetRevision: HEAD
-    path: apps/ops
+    path: charts/prod/web-app
   
   destination:
     server: https://kubernetes.default.svc
-    # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    namespace: default
+    namespace: web-app
   
   syncPolicy:
     automated: 

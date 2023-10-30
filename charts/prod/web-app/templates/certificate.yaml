@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "web-app.fullname" . }}-cert
+  namespace: {{ .Values.istio.namespace}}
+spec:
+  secretName: {{ include "web-app.fullname" . }}-tls
+  issuerRef:
+    name: {{ .Values.istio.clusterIssuer }}
+    kind: ClusterIssuer
+  commonName: {{ .Values.istio.domain }}
+  dnsNames:
+    - {{ .Values.istio.domain }}
