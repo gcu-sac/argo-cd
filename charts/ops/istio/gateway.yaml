@@ -12,7 +12,7 @@ spec:
         number: 443
         protocol: HTTPS
       tls:
-        credentialName: istio-grafana-tls
+        credentialName: sac-gw-tls
         mode: SIMPLE
     - hosts:
         - sac.prod.cluster.yanychoi.site
