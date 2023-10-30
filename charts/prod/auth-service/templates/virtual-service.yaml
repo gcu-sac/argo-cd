@@ -2,7 +2,6 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: {{ include "auth-service.fullname" . }}
-  namespace: {{ .Values.istio.namespace}}
 spec:
   hosts:
   - {{ .Values.istio.domain }}
