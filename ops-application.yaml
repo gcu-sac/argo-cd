@@ -8,7 +8,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 
 spec:
-  project: apps
+  project: default
   
   source:
     repoURL: https://github.com/gcu-sac/argo-cd.git
@@ -18,7 +18,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     # The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace
-    namespace: default
+    namespace: '*'
   
   syncPolicy:
     automated: 
