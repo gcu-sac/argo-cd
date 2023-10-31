@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calendar-db-svc
+  namespace: calendar-service
+spec:
+  selector:
+    app: calendar-db
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306

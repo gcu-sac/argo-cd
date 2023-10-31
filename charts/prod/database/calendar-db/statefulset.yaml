@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: calendar-db
+  namespace: calendar-service
+spec:
+  selector:
+    matchLabels:
+      app: calendar-db
+  serviceName: calendar-db-svc
+  replicas: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: calendar-db
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mysql
+          image: mysql:8.0.33
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+              - name: calendar-db-pvc
+                mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "1234"
+            - name: MYSQL_DATABASE
+              value: sac
+  volumeClaimTemplates:
+    - metadata:
+        name: calendar-db-pvc
+        namespace: calendar-service
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "nfs-client"
+        resources:
+          requests:
+            storage: 10Gi

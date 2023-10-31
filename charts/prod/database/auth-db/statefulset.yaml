@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: auth-db
+  namespace: auth-service
+spec:
+  selector:
+    matchLabels:
+      app: auth-db
+  serviceName: auth-db-svc
+  replicas: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: auth-db
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mysql
+          image: mysql:8.0.33
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+              - name: auth-db-pvc
+                mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "1234"
+            - name: MYSQL_DATABASE
+              value: sac
+  volumeClaimTemplates:
+    - metadata:
+        name: auth-db-pvc
+        namespace: auth-service
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "nfs-client"
+        resources:
+          requests:
+            storage: 10Gi

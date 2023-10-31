@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/gcu-sac/argo-cd.git
     targetRevision: HEAD
-    path: charts/prod/auth-service
+    path: charts/prod/microservice/auth-service
   
   destination:
     server: https://kubernetes.default.svc

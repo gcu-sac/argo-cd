@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: calendar-service
+  name: calendar-db
   namespace: argo-cd
   # Add a this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -13,11 +13,11 @@ spec:
   source:
     repoURL: https://github.com/gcu-sac/argo-cd.git
     targetRevision: HEAD
-    path: charts/prod/microservice/calendar-service
+    path: charts/prod/database/calendar-db
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: calendar-service
+    namespace: calendar-db
   
   syncPolicy:
     automated: 
