@@ -709,7 +709,7 @@ elasticsearch:
   ##   - elasticsearch-2
   ##
   hosts:
-    - elasticsearch
+    - elasticsearch.elasticsearch.svc.cluster.local
   ## @param elasticsearch.port Elasticsearch port
   ##
   port: 9200
