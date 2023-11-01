@@ -30,5 +30,5 @@ istio:
   namespace: istio-system
   domain: sac.prod.cluster.yanychoi.site
   clusterIssuer: letsencrypt-prod
-  prefix: /calendar
+  prefix: /api/calendar
   gateway: istio-system/sac-gw
