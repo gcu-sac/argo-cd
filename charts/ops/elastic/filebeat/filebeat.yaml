@@ -109,8 +109,8 @@ data:
     filebeat.inputs:
     - type: container
       paths:
-        - /var/log/pods/calendar-service_*/spring/*.log
-        - /var/log/pods/auth-service_*/spring/*.log
+        - /var/log/pods/calendar-service_*/calendar-service/*.log
+        - /var/log/pods/auth-service_*/auth-service/*.log
         - /var/log/pods/web-app_*/web-app/*.log
       processors:
         - add_kubernetes_metadata:
