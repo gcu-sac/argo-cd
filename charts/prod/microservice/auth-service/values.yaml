@@ -32,3 +32,7 @@ istio:
   clusterIssuer: letsencrypt-prod
   prefix: /api/auth
   gateway: istio-system/sac-gw
+
+db:
+  url: "jdbc:mysql://auth-db-svc.auth-service.svc.cluster.local:3306/sac"
+  password: "1234"
