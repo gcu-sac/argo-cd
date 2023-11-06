@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: calendar-db-configmap
+  namespace: calendar-service
+data:
+  initdb.sql: |
+    CREATE TABLE Schedule (
+      ScheduleID int PRIMARY KEY,
+      ScheduleName VARCHAR(45) NOT NULL,
+      StartTime DATETIME NOT NULL,
+      EndTime DATETIME NOT NULL,
+      ScheduleDesc VARCHAR(45),
+      GroupID VARCHAR(45)
+    );
