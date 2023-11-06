@@ -34,5 +34,5 @@ istio:
   gateway: istio-system/sac-gw
 
 db:
-  url: "jdbc:mysql://auth-db-svc.auth-service.svc.cluster.local:3306/sac"
+  url: "jdbc:mysql://auth-db-svc.auth-service.svc.cluster.local:3306/sac?useSSL=false&serverTimezone=UTC"
   password: "1234"
