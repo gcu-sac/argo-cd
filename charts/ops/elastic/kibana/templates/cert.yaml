@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kibana-gw-cert
+  namespace: istio-system # istio 설치경로
+spec:
+  secretName: kibana-gw-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: kibana.prod.cluster.yanychoi.site
+  dnsNames:
+  - kibana.prod.cluster.yanychoi.site
