@@ -26,7 +26,7 @@ global:
       name: elasticsearch
       ports:
         restAPI: 9200
-  kibanaEnabled: false
+  kibanaEnabled: true
 
 ## @section Common parameters
 
@@ -2267,3 +2267,12 @@ kibana:
     hosts:
       - '{{ include "elasticsearch.service.name" . }}'
     port: '{{ include "elasticsearch.service.ports.restAPI" . }}'
+    security:
+      auth:
+        enabled: true
+        kibanaUsername: "elastic"
+        kibanaPassword: "rkcjseo"
+      tls:
+        enabled: true
+        existingSecret: "elasticsearch-master-crt"
+        usePemCerts: true
