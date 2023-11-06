@@ -169,6 +169,8 @@ spec:
           resources: {{- toYaml .Values.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
+            - name: cert
+              mountPath: /etc/logstash/config/certs/
             {{- if .Values.persistence.enabled }}
             - name: data
               mountPath: {{ .Values.persistence.mountPath }}
@@ -184,6 +186,9 @@ spec:
         {{- include "common.tplvalues.render" ( dict "value" .Values.sidecars "context" $) | nindent 8 }}
         {{- end }}
       volumes:
+        - name: cert
+          secret:
+            secretName: "elasticsearch-master-crt"
         {{- if or .Values.input .Values.filter .Values.output .Values.existingConfiguration }}
         - name: configurations
           configMap:

@@ -148,6 +148,10 @@ output: |-
     hosts => ["elasticsearch.elasticsearch.svc.cluster.local:9200"]
     manage_template => false
     index => "logstash-%{+YYYY.MM.dd}"
+    ssl_enabled => true
+    user => "elastic"
+    password => "rkcjseo"
+    ssl_certificate_authorities => ["/etc/logstash/config/certs/ca.crt"]
   }
   stdout {}
 ## @param existingConfiguration Name of existing ConfigMap object with the Logstash configuration (`input`, `filter`, and `output` will be ignored).
