@@ -125,7 +125,7 @@ input: |-
     bootstrap_servers => "kafka-broker-headless.kafka.svc.cluster.local:9092"
     sasl_mechanism => "PLAIN"
     security_protocol => "SASL_PLAINTEXT"
-    sasl_jaas_config => "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"user1\" password=\"asdf\";"
+    sasl_jaas_config => 'org.apache.kafka.common.security.plain.PlainLoginModule required username="user1" password="asdf";'
     topics => ["filebeat"]
     auto_offset_reset => "latest"
     decorate_events => true
@@ -155,7 +155,7 @@ filter: |-
 ##
 output: |-
   elasticsearch {
-    hosts => ["elasticsearch-master-hl.elasticsearch.svc.cluster.local:9200"]
+    hosts => ["elasticsearch.elasticsearch.svc.cluster.local:9200"]
     manage_template => false
     index => "logstash-%{+YYYY.MM.dd}"
   }
