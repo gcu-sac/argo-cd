@@ -745,7 +745,7 @@ elasticsearch:
       existingSecret: "elasticsearch-master-crt"
       ## @param elasticsearch.security.tls.usePemCerts Set to 'true' to use PEM certificates instead of PKCS12.
       ##
-      usePemCerts: false
+      usePemCerts: true
       ## @param elasticsearch.security.tls.truststorePassword Password to access the PKCS12 trustore in case it is password-protected.
       ##
       truststorePassword: ""
