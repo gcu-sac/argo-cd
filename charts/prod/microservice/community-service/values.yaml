@@ -32,3 +32,6 @@ istio:
   clusterIssuer: letsencrypt-prod
   prefix: /api/community
   gateway: istio-system/sac-gw
+db:
+  url: "community-db-svc.calendar-service.svc.cluster.local:3306/sac"
+  password: "1234"
