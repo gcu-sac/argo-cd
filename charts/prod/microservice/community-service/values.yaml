@@ -12,7 +12,7 @@ image:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8000
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -33,5 +33,5 @@ istio:
   prefix: /api/community
   gateway: istio-system/sac-gw
 db:
-  url: "community-db-svc.calendar-service.svc.cluster.local:3306/sac"
+  url: community-db-svc.community-service.svc.cluster.local
   password: "1234"

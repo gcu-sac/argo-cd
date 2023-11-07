@@ -30,9 +30,9 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           env:
-            - name: DB_URL
+            - name: DB_HOST
               value: {{ .Values.db.url }}
-            - name: DB_USERNAME
+            - name: DB_USER
               value: root
             - name: DB_PASSWORD
               value: "{{ .Values.db.password }}"
