@@ -35,3 +35,5 @@ istio:
 db:
   url: community-db-svc.community-service.svc.cluster.local
   password: "1234"
+otel:
+  endpoint: http://tempo.tempo.svc.cluster.local:4317

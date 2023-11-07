@@ -36,3 +36,5 @@ spec:
               value: root
             - name: DB_PASSWORD
               value: "{{ .Values.db.password }}"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: "{{ .Values.otel.endpoint }}"
