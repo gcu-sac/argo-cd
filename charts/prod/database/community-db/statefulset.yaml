@@ -26,11 +26,17 @@ spec:
           volumeMounts:
               - name: community-db-pvc
                 mountPath: /var/lib/mysql
+              - name: mysql-init
+                mountPath: /docker-entrypoint-initdb.d
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "1234"
             - name: MYSQL_DATABASE
               value: sac
+      volumes:
+        - name: mysql-init
+          configMap:
+            name: community-db-configmap
   volumeClaimTemplates:
     - metadata:
         name: community-db-pvc

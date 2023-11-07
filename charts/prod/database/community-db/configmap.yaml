@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: community-db-configmap
+  namespace: community-service
+data:
+  initdb.sql: |
+    CREATE TABLE board (
+      idx INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+      name VARCHAR(16) NOT NULL,
+      title VARCHAR(128) NOT NULL,
+      content TEXT NOT NULL,
+      date DATETIME NOT NULL,
+      is_delete TINYINT NOT NULL DEFAULT 0
+    );
+
+    CREATE TABLE reply (
+      idx INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+      bidx INT NOT NULL,
+      name VARCHAR(16) NOT NULL,
+      content TEXT NOT NULL,
+      date DATETIME NOT NULL,
+      is_delete TINYINT NOT NULL DEFAULT 0
+    );
