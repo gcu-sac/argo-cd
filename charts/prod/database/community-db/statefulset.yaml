@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: community-db
+        sidecar.istio.io/inject: "false"
     spec:
       terminationGracePeriodSeconds: 10
       containers:
