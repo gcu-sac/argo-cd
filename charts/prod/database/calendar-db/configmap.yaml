@@ -6,10 +6,10 @@ metadata:
 data:
   initdb.sql: |
     CREATE TABLE Schedule (
-      ScheduleID int PRIMARY KEY,
-      ScheduleName VARCHAR(45) NOT NULL,
-      StartTime DATETIME NOT NULL,
-      EndTime DATETIME NOT NULL,
-      ScheduleDesc VARCHAR(45),
-      GroupID VARCHAR(45)
+        ScheduleID int PRIMARY KEY AUTO_INCREMENT,
+        UserID VARCHAR(512) NOT NULL,
+        ScheduleName VARCHAR(45) NOT NULL,
+        StartTime DATETIME NOT NULL,
+        EndTime DATETIME NOT NULL,
+        ScheduleDesc VARCHAR(45)
     );
