@@ -4,7 +4,7 @@ metadata:
   name: kafka-ui-vs
 spec:
   hosts:
-  - kafka.prod.cluster.yanychoi.site
+  - kafka.prod.cluster.yanychoi.com
   gateways:
   - kafka-ui-gw
   http:

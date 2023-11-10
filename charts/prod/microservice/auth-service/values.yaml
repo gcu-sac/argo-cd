@@ -28,7 +28,7 @@ resources: {}
 
 istio:
   namespace: istio-system
-  domain: sac.prod.cluster.yanychoi.site
+  domain: sac.prod.cluster.yanychoi.com
   clusterIssuer: letsencrypt-prod
   prefix: /api/auth
   gateway: istio-system/sac-gw

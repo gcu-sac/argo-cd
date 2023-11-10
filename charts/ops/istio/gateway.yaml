@@ -6,7 +6,7 @@ metadata:
 spec:
   servers:
     - hosts:
-        - sac.prod.cluster.yanychoi.site
+        - sac.prod.cluster.yanychoi.com
       port:
         name: https
         number: 443
@@ -15,7 +15,7 @@ spec:
         credentialName: sac-gw-tls
         mode: SIMPLE
     - hosts:
-        - sac.prod.cluster.yanychoi.site
+        - sac.prod.cluster.yanychoi.com
       port:
         name: http
         number: 80

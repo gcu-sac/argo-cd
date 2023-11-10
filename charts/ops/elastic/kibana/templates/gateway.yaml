@@ -6,7 +6,7 @@ metadata:
 spec:
   servers:
     - hosts:
-        - kibana.prod.cluster.yanychoi.site
+        - kibana.prod.cluster.yanychoi.com
       port:
         name: https
         number: 443
@@ -15,7 +15,7 @@ spec:
         credentialName: kibana-gw-tls
         mode: SIMPLE
     - hosts:
-        - kibana.prod.cluster.yanychoi.site
+        - kibana.prod.cluster.yanychoi.com
       port:
         name: http
         number: 80
@@ -24,7 +24,6 @@ spec:
     app: istio-ingressgateway
 
 ---
-
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
@@ -32,15 +31,15 @@ metadata:
   namespace: elasticsearch
 spec:
   hosts:
-  - kibana.prod.cluster.yanychoi.site
+    - kibana.prod.cluster.yanychoi.com
   gateways:
-  - kibana-gw
+    - kibana-gw
   http:
-  - match:
-    - uri:
-        prefix: /
-    route:
-    - destination:
-        port:
-          number: 5601
-        host: kibana
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 5601
+            host: kibana

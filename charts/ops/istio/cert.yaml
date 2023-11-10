@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: sac.prod.cluster.yanychoi.site
+  commonName: sac.prod.cluster.yanychoi.com
   dnsNames:
-  - sac.prod.cluster.yanychoi.site
+  - sac.prod.cluster.yanychoi.com

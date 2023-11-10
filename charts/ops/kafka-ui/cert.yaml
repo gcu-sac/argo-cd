@@ -8,6 +8,6 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: kafka.prod.cluster.yanychoi.site
+  commonName: kafka.prod.cluster.yanychoi.com
   dnsNames:
-  - kafka.prod.cluster.yanychoi.site
+  - kafka.prod.cluster.yanychoi.com

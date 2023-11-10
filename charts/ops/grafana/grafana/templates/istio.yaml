@@ -8,9 +8,9 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: grafana.prod.cluster.yanychoi.site
+  commonName: grafana.prod.cluster.yanychoi.com
   dnsNames:
-  - grafana.prod.cluster.yanychoi.site
+    - grafana.prod.cluster.yanychoi.com
 ---
 kind: Gateway
 apiVersion: networking.istio.io/v1beta1
@@ -20,7 +20,7 @@ metadata:
 spec:
   servers:
     - hosts:
-        - grafana.prod.cluster.yanychoi.site
+        - grafana.prod.cluster.yanychoi.com
       port:
         name: https
         number: 443
@@ -29,7 +29,7 @@ spec:
         credentialName: grafana-gw-tls
         mode: SIMPLE
     - hosts:
-        - grafana.prod.cluster.yanychoi.site
+        - grafana.prod.cluster.yanychoi.com
       port:
         name: http
         number: 80
@@ -38,7 +38,6 @@ spec:
     app: istio-ingressgateway
 
 ---
-
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
@@ -46,15 +45,15 @@ metadata:
   namespace: grafana
 spec:
   hosts:
-  - grafana.prod.cluster.yanychoi.site
+    - grafana.prod.cluster.yanychoi.com
   gateways:
-  - grafana-gw
+    - grafana-gw
   http:
-  - match:
-    - uri:
-        prefix: /
-    route:
-    - destination:
-        port:
-          number: 80
-        host: grafana
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            port:
+              number: 80
+            host: grafana

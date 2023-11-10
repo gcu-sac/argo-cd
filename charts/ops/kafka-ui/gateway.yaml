@@ -5,7 +5,7 @@ metadata:
 spec:
   servers:
     - hosts:
-        - kafka.prod.cluster.yanychoi.site
+        - kafka.prod.cluster.yanychoi.com
       port:
         name: https
         number: 443
@@ -14,7 +14,7 @@ spec:
         credentialName: kafka-ui-tls
         mode: SIMPLE
     - hosts:
-        - kafka.prod.cluster.yanychoi.site
+        - kafka.prod.cluster.yanychoi.com
       port:
         name: http
         number: 80
