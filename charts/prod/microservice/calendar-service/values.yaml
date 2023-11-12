@@ -34,5 +34,5 @@ istio:
   gateway: istio-system/sac-gw
 
 db:
-  url: "jdbc:mysql://calendar-db-svc.calendar-service.svc.cluster.local:3306/sac"
+  url: "jdbc:mysql://calendar-db-svc.calendar-service.svc.cluster.local:3306/sac?useSSL=false&allowPublicKeyRetrieval=true"
   password: "1234"
