@@ -139,14 +139,6 @@ filter: |-
     source => "message"
   }
 
-  grok {
-    match => { "log.file.path" => "/var/log/pods/%{DATA:service}_.*" }
-  }
-
-  mutate {
-    add_field => {"service" => "%{service}"}
-  }
-
 # filter: ""
 ## @param output [string] Output Plugins configuration
 ## ref: https://www.elastic.co/guide/en/logstash/current/output-plugins.html
