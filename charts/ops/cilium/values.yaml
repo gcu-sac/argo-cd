@@ -1663,7 +1663,7 @@ vtep:
 # direct routing and the Kubernetes CIDR is included in the native routing CIDR,
 # the user must configure the routes to reach pods, either manually or by
 # setting the auto-direct-node-routes flag.
-ipv4NativeRoutingCIDR: ""
+ipv4NativeRoutingCIDR: "172.16.0.0/17"
 
 # -- (string) Allows to explicitly specify the IPv6 CIDR for native routing.
 # When specified, Cilium assumes networking for this CIDR is preconfigured and
@@ -2101,7 +2101,7 @@ tunnelProtocol: ""
 
 # -- Enable native-routing mode or tunneling mode.
 # @default -- `"tunnel"`
-routingMode: ""
+routingMode: "native"
 
 # -- Configure VXLAN and Geneve tunnel port.
 # @default -- Port 8472 for VXLAN, Port 6081 for Geneve
