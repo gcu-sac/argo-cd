@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/gcu-sac/argo-cd.git
     targetRevision: HEAD
-    path: charts/ops/istio
+    path: charts/prod/sac-gateway
   
   destination:
     server: https://kubernetes.default.svc
