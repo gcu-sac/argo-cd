@@ -31,7 +31,8 @@ istio:
   domain: sac.prod.cluster.yanychoi.com
   clusterIssuer: letsencrypt-prod
   prefix: /api/community
-  gateway: istio-system/sac-gw
+  ingressGateway: istio-system/sac-ingress-gw
+  egressGateway: istio-system/sac-egress-gw
 db:
   url: community-db-svc.community-service.svc.cluster.local
   password: "1234"

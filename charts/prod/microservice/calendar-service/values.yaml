@@ -31,7 +31,8 @@ istio:
   domain: sac.prod.cluster.yanychoi.com
   clusterIssuer: letsencrypt-prod
   prefix: /api/calendar
-  gateway: istio-system/sac-gw
+  ingressGateway: istio-system/sac-ingress-gw
+  egressGateway: istio-system/sac-egress-gw
 
 db:
   url: "jdbc:mysql://calendar-db-svc.calendar-service.svc.cluster.local:3306/sac?useSSL=false&allowPublicKeyRetrieval=true"

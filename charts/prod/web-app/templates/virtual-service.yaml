@@ -1,12 +1,31 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: {{ include "web-app.fullname" . }}
+  name: {{ include "web-app.fullname" . }}-ingress
 spec:
   hosts:
   - {{ .Values.istio.domain }}
   gateways:
-  - {{ .Values.istio.gateway }}
+  - {{ .Values.istio.ingressGateway }}
+  http:
+  - match:
+    - uri:
+        prefix: {{ .Values.istio.prefix }}
+    route:
+    - destination:
+        port:
+          number: {{ .Values.service.port }}
+        host: {{ include "web-app.fullname" . }}
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ include "web-app.fullname" . }}-egress
+spec:
+  hosts:
+  - {{ .Values.istio.domain }}
+  gateways:
+  - {{ .Values.istio.egressGateway }}
   http:
   - match:
     - uri:
